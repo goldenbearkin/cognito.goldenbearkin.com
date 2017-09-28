@@ -1,20 +1,24 @@
 import * as React from 'react';
-import './App.css';
+import { BrowserRouter, Switch } from 'react-router-dom';
 
-const logo = require('./logo.svg');
+import GuardLandingRoute from './modules/guard/GuardLandingRoute';
+import GuardRoute from './modules/guard/GuardRoute';
+import GuardCallbackRoute from './modules/guard/GuardCallbackRoute';
+
+import Home from './pages/home/Home';
+import Dashboard from './pages/dashboard/Dashboard';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <GuardLandingRoute exact path="/" redirect="/dashboard" component={Home} />
+          <GuardRoute exact path="/dashboard" component={Dashboard} />
+          <GuardRoute exact path="/abc" component={Dashboard} />
+          <GuardCallbackRoute exact path="/cognitocallback" />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

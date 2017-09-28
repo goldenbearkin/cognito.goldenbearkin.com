@@ -1,0 +1,1 @@
+aws s3 sync build s3://react-cognito-demo --delete --acl public-read
