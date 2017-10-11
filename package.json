@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "HTTPS=true react-scripts-ts start",
-    "deploy": "yarn build && aws s3 sync build s3://cognito.goldenbearkin.com --delete && aws cloudfront create-invalidation --distribution-id E2QPXGWB5OFUH1 --paths '/*'",
+    "deploy": "yarn build && aws s3 sync build s3://$npm_package_name --delete && aws cloudfront create-invalidation --distribution-id E2QPXGWB5OFUH1 --paths '/*'",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
