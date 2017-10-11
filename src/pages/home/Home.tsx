@@ -10,12 +10,11 @@ class Home extends React.PureComponent {
       <div className="Home">
         <div className="Home-header">
           <img src={logo} className="Home-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h2>Welcome to React Cognito Demo</h2>
         </div>
         <p className="Home-intro">
-          To get started, edit <code>src/Home.tsx</code> and save to reload.
+          <SignInButton />
         </p>
-        <SignInButton />
       </div>
     );
   }
