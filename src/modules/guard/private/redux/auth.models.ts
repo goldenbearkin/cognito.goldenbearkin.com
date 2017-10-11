@@ -5,12 +5,14 @@ export type UserT = {
   username: string | null;
 };
 
+const origin = process.env.NODE_ENV === 'production' ? 'cognito.goldenbearkin.com' : 'localhost:3000';
+
 const authConfig: AuthConfigT = {
-  ClientId: '6eap7f5nn89oso50nved9702rn',
-  AppWebDomain: 'react-demo.auth.ap-northeast-1.amazoncognito.com',
+  ClientId: '30su4gcl2q19kkuuase1nb93di',
+  AppWebDomain: 'goldenbearkin.auth.ap-northeast-1.amazoncognito.com',
   TokenScopesArray: ['email openid profile'],
-  RedirectUriSignIn: 'https://localhost:3000/cognitocallback',
-  RedirectUriSignOut: 'https://localhost:3000'
+  RedirectUriSignIn: `https://${origin}/cognitocallback`,
+  RedirectUriSignOut: `https://${origin}`
 };
 
 export const auth = new Auth(authConfig);
